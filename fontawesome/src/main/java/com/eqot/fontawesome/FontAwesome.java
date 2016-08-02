@@ -8,8 +8,13 @@ import android.widget.TextView;
 public class FontAwesome {
     private static final String FONT_FILENAME = "fontawesome-webfont.ttf";
 
+    private static Typeface sTypeface = null;
+
     public static void apply(Context context, View view) {
-        final Typeface font = Typeface.createFromAsset(context.getAssets(), FONT_FILENAME);
-        ((TextView) view).setTypeface(font);
+        if (sTypeface == null) {
+            sTypeface = Typeface.createFromAsset(context.getAssets(), FONT_FILENAME);
+        }
+
+        ((TextView) view).setTypeface(sTypeface);
     }
 }
