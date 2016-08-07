@@ -1,6 +1,7 @@
 package com.eqot.fontawesome;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -34,15 +35,23 @@ public class FontAwesome {
 
             sb.append(matcher.group(1));
 
-            final String orgCode = matcher.group(2);
-            final String code = orgCode.replace("-", "_");
-            final int id = context.getResources().getIdentifier(code, "string", context.getPackageName());
-            final String string = context.getResources().getString(id);
-            sb.append(string, new CustomTypefaceSpan("", sTypeface), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            final String character = getCharacterFromCode(context, matcher.group(2));
+            final CustomTypefaceSpan typefaceSpan = new CustomTypefaceSpan("", sTypeface);
+            sb.append(character, typefaceSpan, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             text = matcher.group(3);
         }
 
         textView.setText(sb);
+    }
+
+    private static String getCharacterFromCode(Context context, String code) {
+        code = code.replace("-", "_");
+
+        final Resources resources = context.getResources();
+        final int id = resources.getIdentifier(code, "string", context.getPackageName());
+        final String character = resources.getString(id);
+
+        return character;
     }
 }
