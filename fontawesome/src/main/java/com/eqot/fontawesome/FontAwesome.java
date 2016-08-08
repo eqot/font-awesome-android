@@ -1,6 +1,5 @@
 package com.eqot.fontawesome;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -18,6 +17,20 @@ public class FontAwesome {
 
     private static Typeface sTypeface = null;
     private static final Pattern pattern = Pattern.compile("([^\\{]*)\\{([\\w\\-]+)\\}(.*)");
+
+    public static void applyToAllViews(Context context, View view) {
+        apply(context, view);
+
+        if (!(view instanceof ViewGroup)) {
+            return;
+        }
+
+        ViewGroup viewGroup = (ViewGroup) view;
+        for (int i = 0, l = viewGroup.getChildCount(); i < l; i++) {
+            final View child = viewGroup.getChildAt(i);
+            applyToAllViews(context, child);
+        }
+    }
 
     public static void apply(Context context, View view) {
         if (sTypeface == null) {
@@ -60,19 +73,5 @@ public class FontAwesome {
         final String character = resources.getString(id);
 
         return character;
-    }
-
-    public static void applyToAllViews(Activity activity, View view) {
-        apply(activity, view);
-
-        if (!(view instanceof ViewGroup)) {
-            return;
-        }
-
-        ViewGroup viewGroup = (ViewGroup) view;
-        for (int i = 0, l = viewGroup.getChildCount(); i < l; i++) {
-            final View child = viewGroup.getChildAt(i);
-            applyToAllViews(activity, child);
-        }
     }
 }
