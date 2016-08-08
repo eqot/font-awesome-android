@@ -23,6 +23,7 @@ public class FontAwesome {
         }
 
         final TextView textView = (TextView) view;
+        textView.setAllCaps(false);
         String text = (String) textView.getText();
 
         final SpannableStringBuilder sb = new SpannableStringBuilder();

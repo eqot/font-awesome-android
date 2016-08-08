@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FontAwesomeSample</string>
     <string name="sample">This is a sample. {fa-smile-o} {fa-thumbs-o-up}</string>
+    <string name="sample_button">This is a sample. {fa-smile-o} {fa-thumbs-o-up}</string>
 </resources>

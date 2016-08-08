@@ -13,5 +13,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FontAwesome.apply(this, findViewById(R.id.text));
+        FontAwesome.apply(this, findViewById(R.id.button));
     }
 }
