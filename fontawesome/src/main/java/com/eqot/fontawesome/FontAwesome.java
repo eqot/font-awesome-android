@@ -30,7 +30,7 @@ public class FontAwesome {
 
         final TextView textView = (TextView) view;
         textView.setAllCaps(false);
-        String text = (String) textView.getText();
+        CharSequence text = textView.getText();
 
         final SpannableStringBuilder sb = new SpannableStringBuilder();
         while (true) {
