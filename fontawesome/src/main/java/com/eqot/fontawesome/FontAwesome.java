@@ -1,11 +1,13 @@
 package com.eqot.fontawesome;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -20,6 +22,10 @@ public class FontAwesome {
     public static void apply(Context context, View view) {
         if (sTypeface == null) {
             sTypeface = Typeface.createFromAsset(context.getAssets(), FONT_FILENAME);
+        }
+
+        if (!(view instanceof TextView)) {
+            return;
         }
 
         final TextView textView = (TextView) view;
@@ -54,5 +60,19 @@ public class FontAwesome {
         final String character = resources.getString(id);
 
         return character;
+    }
+
+    public static void applyToAllViews(Activity activity, View view) {
+        apply(activity, view);
+
+        if (!(view instanceof ViewGroup)) {
+            return;
+        }
+
+        ViewGroup viewGroup = (ViewGroup) view;
+        for (int i = 0, l = viewGroup.getChildCount(); i < l; i++) {
+            final View child = viewGroup.getChildAt(i);
+            applyToAllViews(activity, child);
+        }
     }
 }

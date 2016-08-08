@@ -12,7 +12,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FontAwesome.apply(this, findViewById(R.id.text));
-        FontAwesome.apply(this, findViewById(R.id.button));
+        FontAwesome.applyToAllViews(this, findViewById(R.id.activity_main));
+
+//        FontAwesome.apply(this, findViewById(R.id.text));
+//        FontAwesome.apply(this, findViewById(R.id.button));
     }
 }
