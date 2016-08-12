@@ -42,10 +42,15 @@ public class FontAwesome {
         }
 
         final TextView textView = (TextView) view;
+        final CharSequence text = textView.getText();
+        final SpannableStringBuilder convertedText = convertText(context, text);
+        textView.setText(convertedText);
         textView.setAllCaps(false);
-        CharSequence text = textView.getText();
+    }
 
+    private static SpannableStringBuilder convertText(Context context, CharSequence text) {
         final SpannableStringBuilder sb = new SpannableStringBuilder();
+
         while (true) {
             final Matcher matcher = pattern.matcher(text);
             if (!matcher.find()) {
@@ -62,7 +67,7 @@ public class FontAwesome {
             text = matcher.group(3);
         }
 
-        textView.setText(sb);
+        return sb;
     }
 
     private static String getCharacterFromCode(Context context, String code) {
