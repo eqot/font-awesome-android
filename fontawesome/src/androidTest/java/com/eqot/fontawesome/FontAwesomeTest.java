@@ -14,6 +14,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class FontAwesomeTest {
     private Method convertText;
+    private Method getCharacterFromCode;
 
     private Context mContext;
 
@@ -22,6 +23,10 @@ public class FontAwesomeTest {
         convertText = FontAwesome.class.getDeclaredMethod(
                 "convertText", Context.class, CharSequence.class);
         convertText.setAccessible(true);
+
+        getCharacterFromCode = FontAwesome.class.getDeclaredMethod(
+                "getCharacterFromCode", Context.class, String.class);
+        getCharacterFromCode.setAccessible(true);
 
         mContext = InstrumentationRegistry.getTargetContext();
     }
@@ -50,5 +55,11 @@ public class FontAwesomeTest {
         SpannableStringBuilder sb = (SpannableStringBuilder) convertText.invoke(null,
                 mContext, "foo");
         assertEquals("foo", sb.toString());
+    }
+
+    @Test
+    public void getCharacterFromCode() throws Exception {
+        String character = (String) getCharacterFromCode.invoke(null, mContext, "fa-thumbs-o-up");
+        assertEquals("\uf087", character);
     }
 }
