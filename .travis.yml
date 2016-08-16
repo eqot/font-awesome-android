@@ -11,7 +11,7 @@ android:
     - tools
 
     # The BuildTools version used by your project
-    - build-tools-24.0.0
+    - build-tools-24.0.1
 
     # The SDK version used to compile your project
     - android-24
@@ -24,8 +24,19 @@ android:
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-22
-    - sys-img-x86-android-17
+    - sys-img-armeabi-v7a-android-24
+    - sys-img-x86-android-24
+
+    # Additional components
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-24
+
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 # as per http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
 sudo: false
