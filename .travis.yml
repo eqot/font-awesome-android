@@ -50,7 +50,8 @@ before_script:
 
 # script for build and release via Travis to Bintray
 script:
-  - ./gradlew clean connectedAndroidTest
+  - ./gradlew build connectedCheck
+  # - ./gradlew clean connectedAndroidTest
 
 # notifications:
 #   email: false
