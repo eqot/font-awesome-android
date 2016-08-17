@@ -31,18 +31,19 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-24
+    - addon-google_apis-google-23
 
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+  # licenses:
+  #   - 'android-sdk-preview-license-52d11cd2'
+  #   - 'android-sdk-license-.+'
+  #   - 'google-gdk-license-.+'
 
 # as per http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
 sudo: false
 
 # script for build and release via Travis to Bintray
-script: gradle/buildViaTravis.sh
+script:
+  - ./gradlew clean connectedAndroidTest
 
 notifications:
   email: false
