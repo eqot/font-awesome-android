@@ -28,10 +28,10 @@ android:
     # - sys-img-x86-android-24
 
     # Additional components
-    # - extra-google-google_play_services
-    # - extra-google-m2repository
-    # - extra-android-m2repository
-    # - addon-google_apis-google-23
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-23
 
   # licenses:
   #   - 'android-sdk-preview-license-52d11cd2'
