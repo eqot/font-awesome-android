@@ -1,7 +1,7 @@
 language: android
 
-jdk:
-  - oraclejdk8
+# jdk:
+#   - oraclejdk8
 
 android:
   components:
@@ -28,8 +28,8 @@ android:
     # - sys-img-x86-android-24
 
     # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
+    # - extra-google-google_play_services
+    # - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-23
 
@@ -53,8 +53,8 @@ script:
   - ./gradlew build connectedCheck
   # - ./gradlew clean connectedAndroidTest
 
-# notifications:
-#   email: false
+notifications:
+  email: false
 
 # cache between builds
 # cache:
