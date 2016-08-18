@@ -32,18 +32,13 @@ android:
     # - sys-img-x86-android-24
 
     # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
+    # - extra-google-google_play_services
+    # - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-23
 
-  # licenses:
-  #   - 'android-sdk-preview-license-52d11cd2'
-  #   - 'android-sdk-license-.+'
-  #   - 'google-gdk-license-.+'
-
 # as per http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
-# sudo: false
+sudo: false
 
 # Emulator Management: Create, Start and Wait
 before_script:
@@ -55,13 +50,12 @@ before_script:
 # script for build and release via Travis to Bintray
 script:
   - ./gradlew build connectedCheck
-  # - ./gradlew clean connectedAndroidTest
 
 notifications:
   email: false
 
 # cache between builds
-# cache:
-#   directories:
-#   - $HOME/.m2
-#   - $HOME/.gradle
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
