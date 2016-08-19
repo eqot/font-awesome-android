@@ -1,4 +1,8 @@
 # font-awesome-android
+[![Travis](https://travis-ci.org/eqot/font-awesome-android.svg?branch=master)](https://travis-ci.org/eqot/font-awesome-android/builds)
+[![Download](https://api.bintray.com/packages/eqot/maven/font-awesome-android/images/download.svg) ](https://bintray.com/eqot/maven/font-awesome-android/_latestVersion)
+[![Apache2](http://img.shields.io/badge/license-APACHE2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
 
 A [Font Awesome](http://fontawesome.io/) library for Android.
 
