@@ -6,6 +6,8 @@
 
 A [Font Awesome](http://fontawesome.io/) library for Android.
 
+![font-awesome-android](https://dl.dropboxusercontent.com/u/972960/Documents/font-awesome-android/font-awesome-android.png)
+
 ## Download
 
 Gradle:
@@ -27,22 +29,44 @@ Maven:
 
 ## Sample usage
 
+You can define strings with Font Awesome icons in ```strings.xml```
+with icons IDs (like ```fa-smile-o```) in [the cheatsheet](http://fontawesome.io/cheatsheet/).
+
 ```
-<android.support.constraint.ConstraintLayout
+<resources>
+    <string name="label1">This is an example {fa-smile-o} {fa-thumbs-o-up}</string>
+    <string name="label2">{fa-font-awesome} Font Awesome</string>
+</resources>
+```
+
+The strings can be utilized in the usual style.
+
+```
+<LinearLayout
     android:id="@+id/activity_main"
-    ...
-    />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:text="Hello World! {fa-thumbs-o-up}"
         android:id="@+id/text"
-        ...
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label1"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label2"/>
+
+</LinearLayout>
 ```
+
+FontAwesome#applyToAllViews() will replace icon IDs with unicode strings and set a proper font.
 
 ```
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
