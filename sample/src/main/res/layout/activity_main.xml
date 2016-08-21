@@ -12,13 +12,12 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sample"
-        android:textSize="36sp"/>
+        android:text="@string/label1"/>
 
     <Button
         android:id="@+id/button"
-        android:text="@string/sample_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/label2"/>
 
 </LinearLayout>
