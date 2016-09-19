@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.text.SpannableStringBuilder;
 
+import com.eqot.fontawesome.xray.FontAwesome$Xray;
 import com.eqot.xray.Xray;
 
 import org.junit.After;
